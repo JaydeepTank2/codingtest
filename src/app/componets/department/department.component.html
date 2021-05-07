@@ -1,0 +1,15 @@
+<div class="content">
+    <h1>Add New Department</h1>
+    <form class="department-form" [formGroup]="addDepartmentGroup">
+       <div class="from-group">
+            <div>
+                <label class="text-left text-bold">Department</label>
+                <input  placeholder="Enter Department name" #deptNameInput formControlName="departmentName" required (keyup)="validate()" >
+                <p *ngIf="fomrErro && frm.departmentName.errors" class="form-error">Please Department name!</p>
+                <p *ngIf="duplicatedept" class="form-error">{{deptNameInput.value}} department name is alread exist!!</p>
+            </div>
+           
+        </div>
+        <button  class="btn-default" (click)="saveDeaprtment()" >Save</button> 
+    </form>
+</div>

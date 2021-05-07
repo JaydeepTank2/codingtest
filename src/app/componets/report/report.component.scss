@@ -1,0 +1,42 @@
+.content{
+    padding: 1%;
+    text-align: left;
+    
+    margin: 0 auto;
+  }
+  #EmpReport{
+    width: 100%;
+  }
+  table {
+      width: 100%;
+    }
+  .text-bold{
+    font-weight: 600;
+  }
+  .text-center{
+    text-align: center;
+  }
+  .from-group{
+  display: inline-block;
+  margin-right: 10px;
+  }
+  .from-group label{
+    max-width: 320px;
+    display: block
+  }
+  .fromerror{
+    color: crimson;
+  }
+  .mat-raised-button.mat-primary{
+    background: #2387aa;
+  }
+  .mat-form-field{
+  margin-right: 10px;;
+  }
+  .from-group select, .from-group input {
+    padding: 5px;
+    width: 100%;
+    
+  }
+  
+  

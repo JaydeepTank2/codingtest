@@ -1,0 +1,42 @@
+<div class="content">
+    <h1>Add New Department</h1>
+    <form class="employee-form" [formGroup]="addempFromGroup">
+        <div class="from-group">
+            
+                <label class="text-bold">Select Department</label>
+                <select formControlName="departmentName">
+                  <option *ngFor="let department  of departmentList" [value]="department.ID"  >
+                    {{department.Name}}
+                  </option>
+                </select>
+                <p *ngIf="fomrErro && frm.departmentName.errors" class="form-error">Please select department name!</p>
+           </div>
+
+            <div class="from-group">
+                <label class="text-bold">Employee Name</label>
+                <input matInput placeholder="Enter employee name" #deptNameInput formControlName="empName"   >
+                <p *ngIf="fomrErro && frm.empName.errors" class="form-error">Please enter eployee name!</p>
+            </div>
+            <div class="from-group">
+              <label class="text-bold">Select Employee Type</label>
+              <select formControlName="empType" >
+                
+                <option *ngFor="let type of filteredEmpTypeList" [value]="type.id"  >
+                  {{type.type}}
+                </option>
+              </select>
+              <p *ngIf="fomrErro && frm.empType.errors" class="form-error">Please employee type!</p>
+            </div>
+            <div class="from-group"  *ngIf="showManagerList" >
+                <label class="text-bold">Select Reporting Manager</label>
+                <select formControlName="reportingManagerId" >
+                  <option *ngFor="let manager of reportingManager" [value]="manager.id"  >
+                    {{manager.emplyoyeeName}}
+                  </option>
+                </select>
+                
+                <p *ngIf="fomrErro && frm.reportingManagerId.errors" class="form-error">Please select manager name!</p>
+              </div>
+      </form>
+      <button class="btn-default" (click)="saveEmployee()" >Save</button>
+    </div>

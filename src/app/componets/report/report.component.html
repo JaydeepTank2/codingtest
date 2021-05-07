@@ -1,0 +1,57 @@
+<div class="content">
+    <form class="employee-form" [formGroup]="filterReport">
+        <div class="from-group">
+            
+                <label class="text-bold">Select Department</label>
+                <select formControlName="department" #dept >
+                    <option  value=""  >
+                        All Department
+                      </option>
+                    <option *ngFor="let department  of departmentList" [value]="department.ID"  >
+                    {{department.Name}}
+                  </option>
+                </select>
+              
+           </div>
+           <div class="from-group"  >
+            <label class="text-bold">Select Reporting Manager</label>
+            <select formControlName="reportingManagerId" #manger >
+                
+                <option *ngFor="let manager of reportingManager" [value]="manager.id"  >
+                {{manager.emplyoyeeName}}
+              </option>
+            </select>
+            
+            
+          </div>
+          
+           </form>
+<div id="EmpReport" >
+<h1 class="text-center">Employee Report</h1>
+<table *ngIf="employeeList">
+    <thead>
+        <tr>
+            <td class="text-bold">Emp. ID</td>
+            <td class="text-bold">Emp. Name</td>
+            <td class="text-bold">Emp. Type</td>
+            <td class="text-bold">Manager Name</td>
+            <td class="text-bold">Department</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let employee of employeeList | employeeFilter:dept.value: manger.value">
+            <td>{{employee.id}}</td>
+            <td>{{employee.emplyoyeeName}}</td>
+            <td>{{getEmpTypeName(employee.employeeeType)}}</td>
+            <td>{{getManagerName(employee.reportingManager) }} </td>
+            <td>{{getDeptName(employee.departmentId)}}</td>
+        </tr>
+    </tbody>
+
+    
+  </table>
+</div>
+ <p *ngIf="false">No data</p>
+</div>
+
+
